@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XOp-D0-2uw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XOp-D0-2uw">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--QueueManagerDemo-->
@@ -16,26 +16,10 @@
                     <view key="view" contentMode="scaleToFill" id="NIk-0a-5ef">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Nh-pn-llv">
-                                <rect key="frame" x="60" y="184" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="lr0-59-f5B"/>
-                                    <constraint firstAttribute="height" constant="200" id="qKi-tF-ncz"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="7Nh-pn-llv" firstAttribute="centerY" secondItem="NIk-0a-5ef" secondAttribute="centerY" id="eBA-YF-epN"/>
-                            <constraint firstItem="7Nh-pn-llv" firstAttribute="centerX" secondItem="NIk-0a-5ef" secondAttribute="centerX" id="z8l-ko-ceN"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="QueueManagerDemo" id="2zw-oy-bzF"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="imageView" destination="7Nh-pn-llv" id="4rc-Zj-Ohe"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CN9-lx-WGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

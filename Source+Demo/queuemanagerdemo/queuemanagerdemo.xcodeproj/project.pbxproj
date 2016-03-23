@@ -12,7 +12,8 @@
 		1E1F16B61C480E54005A17F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F16B51C480E54005A17F1 /* Assets.xcassets */; };
 		1E1F16B91C480E54005A17F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F16B71C480E54005A17F1 /* LaunchScreen.storyboard */; };
 		1E1F16C91C480FF1005A17F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1F16C81C480FF1005A17F1 /* HomeViewController.swift */; };
-		1E1F16CD1C48122B005A17F1 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1F16CB1C48122B005A17F1 /* QueueManager.swift */; };
+		1ECFC3501CA2993D00681156 /* QueueManagerExperimental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECFC34F1CA2993D00681156 /* QueueManagerExperimental.swift */; };
+		1ECFC3521CA2A14500681156 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECFC3511CA2A14500681156 /* DispatchQueueExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +24,8 @@
 		1E1F16B81C480E54005A17F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E1F16BA1C480E54005A17F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E1F16C81C480FF1005A17F1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		1E1F16CB1C48122B005A17F1 /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		1ECFC34F1CA2993D00681156 /* QueueManagerExperimental.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManagerExperimental.swift; sourceTree = "<group>"; };
+		1ECFC3511CA2A14500681156 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 		1E1F16C31C480EE7005A17F1 /* QueueManager */ = {
 			isa = PBXGroup;
 			children = (
-				1E1F16CB1C48122B005A17F1 /* QueueManager.swift */,
+				1ECFC34F1CA2993D00681156 /* QueueManagerExperimental.swift */,
+				1ECFC3511CA2A14500681156 /* DispatchQueueExtension.swift */,
 			);
 			path = QueueManager;
 			sourceTree = "<group>";
@@ -203,8 +206,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E1F16AF1C480E54005A17F1 /* AppDelegate.swift in Sources */,
-				1E1F16CD1C48122B005A17F1 /* QueueManager.swift in Sources */,
+				1ECFC3521CA2A14500681156 /* DispatchQueueExtension.swift in Sources */,
 				1E1F16C91C480FF1005A17F1 /* HomeViewController.swift in Sources */,
+				1ECFC3501CA2993D00681156 /* QueueManagerExperimental.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +358,7 @@
 				1E1F16BF1C480E54005A17F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

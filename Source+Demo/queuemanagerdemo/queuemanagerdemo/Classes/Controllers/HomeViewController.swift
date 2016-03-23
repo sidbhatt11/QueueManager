@@ -9,37 +9,57 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    @IBOutlet weak var imageView: UIImageView!
-    private let queueManager = QueueManager()
-    private var image:UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadImage()
+        
+        QueueManager.mainQueueAsync { () -> Void in
+            // Some Task on main queue
+        }
+        
+        QueueManager.mainQueueSync { () -> Void in
+            // Some Task on main queue
+        }
+        
+        QueueManager.globalQueueAsync(Block: { () -> Void in
+            // Download Image
+        }) { () -> Void in
+            // Update UI
+        }
+        
+        QueueManager.globalQueueSync(Block: { () -> Void in
+            // Some Task here
+        }) { () -> Void in
+            // Some Task on main queue here
+        }
+        
+        let networkQueue = QueueManager.createNewConcurrentQueue(Name: "NetworkQueue", Priority: .High)
+        let diskIOQueue = QueueManager.createNewSerialQueue(Name: "DiskIOQueue", Priority: .Default)
+        
+        networkQueue.async(Block: { () -> Void in
+            // Download Image Here
+        }) { () -> Void in
+            // Update UI here
+        }
+        
+        networkQueue.sync(Block: { () -> Void in
+            // Some Task here
+        }) { () -> Void in
+            // Some Task on main thread here
+        }
+        
+        diskIOQueue.async(Block: { () -> Void in
+            // Write to disk here
+        }) { () -> Void in
+            // Show alert to user here
+        }
+        
+        diskIOQueue.sync(Block: { () -> Void in
+            // Some Task here
+        }) { () -> Void in
+            // Some Task on main thread here
+        }
+        
     }
     
-    private func loadImage() {
-        weak var wself = self
-        
-        let networkQueue = queueManager.createNewConcurrentQueue(Name: "NetworkQueue", Priority: .High)
-        
-        networkQueue.addBlock({
-                // download the image here
-                let imageURL = NSURL(string: "https://s-media-cache-ak0.pinimg.com/736x/1f/99/3b/1f993bf94d9856b966eb4b8c1dea03bf.jpg")!
-            
-                let imageData = NSData(contentsOfURL: imageURL)!
-            
-                wself!.image = UIImage(data: imageData)
-            
-                // never write code like this ^
-                // this is just a quick dirty demo
-            }) {
-                // update the UI here
-                if let imageToShow = wself?.image {
-                    wself!.imageView.image = imageToShow
-                }
-        }
-    }
-
 }

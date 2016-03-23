@@ -13,13 +13,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) { () -> Void in
-            // Download Image here
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                // Update UIImageView here
-            })
-        }
+        
+
         
         QueueManager.mainQueueAsync { () -> Void in
             // Some Task on main queue

@@ -32,8 +32,13 @@ let globalQueue = QueueManager.globalQueue() // GCD: dispatch_get_global_queue(0
 ```  
 Get a custom concurrent queue :
 ```
-let networkQueue = QueueManager.createNewConcurrentQueue(Name: “NetworkQueue”, Priority: .High)
+let myConQueue = QueueManager.createNewConcurrentQueue(Name: “myConQueueName”, Priority: .High)
 ```
+Get a custom serial queue :
+```
+let mySerialQueue = QueueManager.createNewSerialQueue(Name: “mySerialQueueName”, Priority: .Default)
+```
+
 
 
 

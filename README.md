@@ -26,7 +26,7 @@ Get main queue :
 ```  
 let mainQueue = QueueManager.mainQueue() // GCD: dispatch_get_main_queue()  
 ```
-Get a global Concurrent queue :  
+Get a global concurrent queue :  
 ```
 let globalQueue = QueueManager.globalQueue() // GCD: dispatch_get_global_queue(0, 0)
 ```  

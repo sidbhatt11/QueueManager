@@ -24,10 +24,18 @@ QueueManager.globalQueueAsync(Block: { () -> Void in
 ## How to use
 Get main queue :  
 ```  
-QueueManager.mainQueue() // GCD: dispatch_get_main_queue()  
+let mainQueue = QueueManager.mainQueue() // GCD: dispatch_get_main_queue()  
 ```
 Get a global Concurrent queue :  
-```QueueManager.globalQueue() // GCD: dispatch_get_global_queue(0, 0)```
+```
+let globalQueue = QueueManager.globalQueue() // GCD: dispatch_get_global_queue(0, 0)
+```  
+Get a custom concurrent queue :
+```
+let networkQueue = QueueManager.createNewConcurrentQueue(Name: “NetworkQueue”, Priority: .High)
+```
+
+
 
 
 

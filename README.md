@@ -27,9 +27,7 @@ Get main queue :
 QueueManager.mainQueue() // GCD: dispatch_get_main_queue()  
 ```
 Get a global Concurrent queue :  
-```QueueManager.globalQueue() // GCD: dispatch_get_global_queue(0, 0)  
-```
-
+```QueueManager.globalQueue() // GCD: dispatch_get_global_queue(0, 0)```
 
 
 

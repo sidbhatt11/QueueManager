@@ -23,7 +23,7 @@ extension dispatch_queue_t {
     func async(Block blockToExecute:()->Void, CompletionBlock completionBlock:()->Void) {
         dispatch_async(self) { () -> Void in
             blockToExecute()
-            QueueManagerExperimental.mainQueueAsync(Block: { () -> Void in
+            QueueManager.mainQueueAsync(Block: { () -> Void in
                 completionBlock()
             })
         }
@@ -42,7 +42,7 @@ extension dispatch_queue_t {
     func sync(Block blockToExecute:()->Void, CompletionBlock completionBlock:()->Void) {
         dispatch_sync(self) { () -> Void in
             blockToExecute()
-            QueueManagerExperimental.mainQueueAsync(Block: { () -> Void in
+            QueueManager.mainQueueAsync(Block: { () -> Void in
                 completionBlock()
             })
         }

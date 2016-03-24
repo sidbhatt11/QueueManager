@@ -134,6 +134,44 @@ Since `QueueManager.mainQueue()` and `QueueManager.globalQueue()` also return a 
             // Some Task Here
         }
 ```
-Note : Please be careful with using these functions on the main queue.
+Be careful with using these functions on main queue. Make sure you know what you are doing before you write that code.
 
+## Important Note
+While using functions with completion blocks, keep in mind that the block you pass to execute first, and the completion block, are two totally different blocks; Meaning you can’t access local variables created in first block in the completion block.
+
+For example, the following is NOT possible as one would expect :
+```
+        QueueManager.globalQueueAsync(Block: { () -> Void in
+						// Perform some task
+            // Create some local variable
+						let numberToPass:Int = 5
+        }) { () -> Void in
+						// Pass local variable to some function
+						self.someFunction(Number: numberToPass)
+        }
+```
+If you want to achieve the behaviour above, you can do something like this :  
+```
+        QueueManager.globalQueueAsync { () -> Void in
+            
+            // Perform some task
+            // Create some local variable
+            let numberToPass:Int = 5
+            
+            QueueManager.mainQueueAsync(Block: { () -> Void in
+                // Pass local variable to some function
+                self.someFunction(Number: numberToPass)
+            })
+        }
+```
+If you want to avoid nesting of these methods, you can follow this approach and design your code accordingly :  
+```  
+        QueueManager.globalQueueAsync(Block: { () -> Void in
+            // Download and parse data
+						// Update UITableView’s DataSource Array
+        }) { () -> Void in
+            // Reload UITablView
+						self.tableView.reloadData()
+        }
+```
 

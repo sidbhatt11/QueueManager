@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         }
         
         QueueManager.globalQueueAsync { () -> Void in
-            // Some Task Here
+            // Perform some task
         }
         
         QueueManager.globalQueueSync { () -> Void in
@@ -57,6 +57,10 @@ class HomeViewController: UIViewController {
             // Some Task Here
         }
         
+        networkQueue.sync { () -> Void in
+            // Some Task Here
+        }
+        
         networkQueue.async(Block: { () -> Void in
             // Download Image Here
         }) { () -> Void in
@@ -69,6 +73,14 @@ class HomeViewController: UIViewController {
             // Some Task on main thread here
         }
         
+        diskIOQueue.async { () -> Void in
+            // Some Task Here
+        }
+        
+        diskIOQueue.sync { () -> Void in
+            // Some Task Here
+        }
+        
         diskIOQueue.async(Block: { () -> Void in
             // Write to disk here
         }) { () -> Void in
@@ -79,6 +91,10 @@ class HomeViewController: UIViewController {
             // Some Task here
         }) { () -> Void in
             // Some Task on main thread here
+        }
+        
+        dispatch_async(diskIOQueue) { () -> Void in
+            // Some Task
         }
         
     }

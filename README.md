@@ -176,4 +176,9 @@ If you want to avoid nesting of these methods, you can follow this approach and 
             self.tableView.reloadData()
         }
 ```
+## Contact & Contribution
+To provide suggestions, ask queries etc, mail me at : sidbhatt11 [at] yahoo [dot] in with 'QueueManager' in subject.
 
+To contribute, simply send a pull request.
+
+Thanks !

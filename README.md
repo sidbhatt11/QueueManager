@@ -40,7 +40,9 @@ Get a custom serial queue :
 let mySerialQueue = QueueManager.createNewSerialQueue(Name: “mySerialQueueName”, Priority: .Default)
 ```
 Methods `createNewConcurrentQueue` and `createNewSerialQueue` take two arguments :  
+
 1) Name:String - Non-Optional - Name of the Queue. Useful for Debugging.
+
 2) Priority:QueuePriority - Optional - Options are : `.Default`, `.High`, `.Low` and `.Background`. Default value is `.Default`.
 
 These QueuePriority options internally map to `qos_class_t` as following :

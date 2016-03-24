@@ -14,6 +14,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         
+        QueueManager.mainQueue().async { () -> Void in
+            // Some Task Here
+        }
+        
+        QueueManager.globalQueue().async { () -> Void in
+            // Some Task Here
+        }
         
         QueueManager.mainQueueAsync { () -> Void in
             // Some Task on main queue
@@ -21,6 +28,14 @@ class HomeViewController: UIViewController {
         
         QueueManager.mainQueueSync { () -> Void in
             // Some Task on main queue
+        }
+        
+        QueueManager.globalQueueAsync { () -> Void in
+            // Some Task Here
+        }
+        
+        QueueManager.globalQueueSync { () -> Void in
+            // Some Task Here
         }
         
         QueueManager.globalQueueAsync(Block: { () -> Void in
@@ -37,6 +52,10 @@ class HomeViewController: UIViewController {
         
         let networkQueue = QueueManager.createNewConcurrentQueue(Name: "NetworkQueue", Priority: .High)
         let diskIOQueue = QueueManager.createNewSerialQueue(Name: "DiskIOQueue", Priority: .Default)
+        
+        networkQueue.async { () -> Void in
+            // Some Task Here
+        }
         
         networkQueue.async(Block: { () -> Void in
             // Download Image Here

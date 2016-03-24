@@ -97,3 +97,43 @@ And your code will look like this :
             // Update UI
         }
 ```
+
+Now for running code blocks on any `dispatch_queue_t` queue, There is an extension provided with QueueManager that makes use of QueueManager. It has following functions :
+```
+/// Runs block asynchronously
+func async(Block blockToExecute:()->Void)
+
+/// Runs block asynchronously with a CompletionBlock that runs on main queue asynchronously. DO NOT USE THIS ON MAIN QUEUE
+func async(Block blockToExecute:()->Void, CompletionBlock completionBlock:()->Void)
+
+/// Runs block synchronously
+func sync(Block blockToExecute:()->Void)
+
+/// Runs block synchronously with a CompletionBlock that runs on main queue asynchronously. DO NOT USE THIS ON MAIN QUEUE
+func sync(Block blockToExecute:()->Void, CompletionBlock completionBlock:()->Void)
+```
+And while using them, your code will look like this :  
+```
+        myConQueue.async { () -> Void in
+            // Some Task Here
+        }
+
+        myConQueue.async(Block: { () -> Void in
+            // Download Image Here
+        }) { () -> Void in
+            // Update UI here
+        }  
+```
+Since `QueueManager.mainQueue()` and `QueueManager.globalQueue()` also return a `dispatch_queue_t`, you can use these functions on them as well :  
+```
+        QueueManager.mainQueue().async { () -> Void in
+            // Some Task Here
+        }
+
+        QueueManager.globalQueue().async { () -> Void in
+            // Some Task Here
+        }
+```
+Note : Please be careful with using these functions on the main queue.
+
+

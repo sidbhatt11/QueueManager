@@ -59,7 +59,7 @@ Both methods `createNewConcurrentQueue` and `createNewSerialQueue` return a `dis
 ### Running Code Blocks in Queues
 To run blocks on main queue, QueueManager has two `class func`(s) :
 ```
-		/// Runs block on main queue asynchronously
+	/// Runs block on main queue asynchronously
     class func mainQueueAsync(Block blockToExecute:()->Void)
     
     /// Runs block on main queue synchronously
@@ -73,7 +73,7 @@ While using the functions above, your code will look like this :
 ```
 Now for running blocks on a global queue, QueueManager has four `class func`(s) :
 ```
-		/// Runs block on global queue asynchronously
+	/// Runs block on global queue asynchronously
     class func globalQueueAsync(Block blockToExecute:()->Void)
 
     /// Runs block on global queue asynchronously with a CompletionBlock that runs on main queue asynchronously
@@ -142,12 +142,12 @@ While using functions with completion blocks, keep in mind that the block you pa
 For example, the following is NOT possible as one would expect :
 ```
         QueueManager.globalQueueAsync(Block: { () -> Void in
-						// Perform some task
+            // Perform some task
             // Create some local variable
-						let numberToPass:Int = 5
+            let numberToPass:Int = 5
         }) { () -> Void in
-						// Pass local variable to some function
-						self.someFunction(Number: numberToPass)
+            // Pass local variable to some function
+            self.someFunction(Number: numberToPass)
         }
 ```
 If you want to achieve the behaviour above, you can do something like this :  
@@ -168,10 +168,10 @@ If you want to avoid nesting of these methods, you can follow this approach and 
 ```  
         QueueManager.globalQueueAsync(Block: { () -> Void in
             // Download and parse data
-						// Update UITableView’s DataSource Array
+            // Update UITableView’s DataSource Array
         }) { () -> Void in
             // Reload UITablView
-						self.tableView.reloadData()
+            self.tableView.reloadData()
         }
 ```
 

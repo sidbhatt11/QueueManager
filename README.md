@@ -41,7 +41,6 @@ let mySerialQueue = QueueManager.createNewSerialQueue(Name: “mySerialQueueName
 ```
 Methods `createNewConcurrentQueue` and `createNewSerialQueue` take two arguments :  
 1) Name:String - Non-Optional - Name of the Queue. Useful for Debugging.
-
 2) Priority:QueuePriority - Optional - Options are : `.Default`, `.High`, `.Low` and `.Background`. Default value is `.Default`.
 
 These QueuePriority options internally map to `qos_class_t` as following :
@@ -60,7 +59,7 @@ Both methods `createNewConcurrentQueue` and `createNewSerialQueue` return a `dis
 ### Running Code Blocks in Queues
 To run blocks on main queue, QueueManager has two `class func`(s) :
 ```
-/// Runs block on main queue asynchronously
+		/// Runs block on main queue asynchronously
     class func mainQueueAsync(Block blockToExecute:()->Void)
     
     /// Runs block on main queue synchronously
